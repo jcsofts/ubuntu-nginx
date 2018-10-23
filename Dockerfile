@@ -1,4 +1,4 @@
-FROM debian:stretch-slim
+FROM ubuntu
 
 RUN apt-get update && \
 	apt-get -y install nginx openssl && \
@@ -19,6 +19,7 @@ RUN apt-get update && \
     rm -rf /etc/nginx/nginx.conf && \
     rm -rf /etc/nginx/sites-enabled/default && \
     rm -rf /etc/nginx/sites-available/default
+
 
 COPY conf/nginx.conf /etc/nginx/nginx.conf
 COPY conf/site/ /etc/nginx/sites-available/
